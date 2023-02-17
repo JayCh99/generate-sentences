@@ -2,6 +2,7 @@ import openai
 import os
 
 openai.organization = "org-FSa4NxgrGx4qQMRGIFpUh31b"
+# Set in PyChar
 openai.api_key = os.getenv("OPENAI_API_KEY")
 
 def rephrase(sent: str, print_sent=False):
@@ -13,7 +14,7 @@ def rephrase(sent: str, print_sent=False):
         prompt=f'Rephrase the following sentence in a unique way: {sent}',
         temperature=0.4,
         max_tokens=32,
-        n=1
+        n=10
     )
 
     sentences = [choice["text"].replace("\n", "") for choice in response["choices"]]

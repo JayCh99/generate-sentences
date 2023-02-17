@@ -7,18 +7,25 @@ def main():
     """
     Define the sentences to rephrase within rephrase_sents
 
-    If more than one rephrasing is specified,
+    If rephrasing more than one prompt, analyzes the rephrasings (PCA visual, cosine-similarities)
     """
     rephrase_sents = [
-        ""
+        "I like to play sports but aren't good at them",
+        "There are a lot of bears in these woods"
     ]
 
     rephrased = [rephrase(prompt) for prompt in rephrase_sents]
 
-    cosine_sims, repeats = analyze(rephrased)
+    if len(rephrase_sents) > 2:
+        cosine_sims, repeats = analyze(rephrased)
+        print(cosine_sims)
+        print(repeats)
+
 
 if __name__ == "__main__":
     main()
+
+# Saved sentences for visuals
 # Visual 2
 # visualize_sentences([rephrase("It's hard for me to pay attention in physics class because I struggle to stay awake and understand his accent", print_sent=True),
 #                      rephrase("I really admire him for his deductive reasoning skills, but he's a terrible person", print_sent=True),
